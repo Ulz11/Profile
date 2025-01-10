@@ -1,10 +1,54 @@
-<html lang="en">
-<html data-theme="dark"></html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <title>Obama</title>
-
+    <title>Ulziibadrakh Tserenchunt</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .cover-photo {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .profile-picture {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            margin-top: -90px;
+            border: 5px solid white;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: center;
+        }
+        @media (max-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        blockquote {
+            margin-top: 2rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Yale.jpg" alt="Yale University Cover Photo" class="cover-photo">
+        <img src="Blue alvin.jpg" alt="Profile Picture of Ulziibadrakh Tserenchunt" class="profile-picture">
+        <h1>Ulziibadrakh Tserenchunt</h1>
+        <p><strong>Gap Year Student</strong></p>
+    </header>
 </head>
 <body>
     <style>
@@ -14,23 +58,15 @@
         h4 {text-align: center;}
     </style>
     <div class="container">
-        <article style="display: grid; grid-template-columns: auto auto; gap: 80px;" >
-            <header>
-                <h2>Ulziibadrakh Tserenchunt</h1>
-                <p>"Gap year student"</p>
-                <h3>Welcome to my own profile</h3>
-                <h4>Please enjoy</h4>
-            </header>
-            <article>
-                <img src="Yale.jpg" width="200" height="300" alt="Yale">
-            </article>
-        </article>
-
-        <article style="display: grid; grid-template-columns: auto auto auto; gap: 60px;">
+        <article style="display: grid; grid-template-columns: auto auto; gap: 60px;">
             <div>
-                <details open>
+                <article>
+                    <header>
+                        <h3>Main</h3>
+                </article>
+                <details close>
                     <summary>Education</summary>
-                    <details open>
+                    <details close>
                         <summary>Elementary Education</summary>
                         <ul>
                             <li>Эхлэл</li>
@@ -38,7 +74,7 @@
                             <li>Олонлог</li>
                         </ul>
                     </details>
-                    <details open>
+                    <details close>
                         <summary>Secondary Education</summary>
                         <ul>
                             <li>Олонлог эгзэ</li>
@@ -51,13 +87,6 @@
                     <p>Ulaanbaatar, Mongolia</p>
                 </details>
             </div>
-            <article>
-                <header>
-                    <h3>Picture</h3>
-                </header>
-                <img src="Blue alvin.jpg" width="175" height="175" alt="Blue Alvin">
-            </article>
-            
             <article>
                 <header>
                     <h3>Contact Links</h3>
@@ -76,8 +105,8 @@
                     <p><strong>🚂 Achievements</strong></p>
                 </header>
                 <ul>
-                    <li>First: IMO - Gold medal</li>
-                    <li>Second: IOI - Gold medal</li>
+                    <li>First: ........</li>
+                    <li>Second: ........</li>
                 </ul>
             </article>
             <article>
@@ -85,8 +114,8 @@
                     <p><strong>💼 Skills</strong></p>
                 </header>
                 <ul>
-                    <li>First: C++</li>
-                    <li>Secondary: Boxing</li>
+                    <li>First: skill 1</li>
+                    <li>Secondary: skill 2</li>
                 </ul>
             </article>
         </article>
@@ -104,7 +133,7 @@
             <input type="file">
         </article>
         <blockquote>
-            <p>“Yale is not dream easy”</p>
+            <p>“Yale is not dream. It's about a 1/3”</p>
             <footer>
                 <cite>— Obama</cite>
             </footer>
