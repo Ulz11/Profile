@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,26 +19,55 @@
             height: 175px;
             border-radius: 50%;
             margin-top: -90px;
-            border: 5px solid white;
+            border: 5px solid var(--background-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .container {
             margin: 0 auto;
             max-width: 1000px;
+            padding: 0 1rem;
         }
-        .grid-3 {
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            justify-items: center;
+            margin: 2rem 0;
         }
-        @media (max-width: 768px) {
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+        }
+        details {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        details summary {
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+        .contact-links {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-links li {
+            margin: 0.5rem 0;
         }
         blockquote {
-            margin-top: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
             font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -49,24 +78,14 @@
         <h1>Ulziibadrakh Tserenchunt</h1>
         <p><strong>Gap Year Student</strong></p>
     </header>
-</head>
-<body>
-    <style>
-        h2 {text-align: center;}
-        p {text-align: center;}
-        h3 {text-align: center;}
-        h4 {text-align: center;}
-    </style>
-    <div class="container">
-        <article style="display: grid; grid-template-columns: auto auto; gap: 60px;">
-            <div>
-                <article>
-                    <header>
-                        <h3>Main</h3>
-                </article>
-                <details close>
+
+    <main class="container">
+        <div class="grid-container">
+            <article>
+                <h3>Main</h3>
+                <details>
                     <summary>Education</summary>
-                    <details close>
+                    <details>
                         <summary>Elementary Education</summary>
                         <ul>
                             <li>Эхлэл</li>
@@ -74,7 +93,7 @@
                             <li>Олонлог</li>
                         </ul>
                     </details>
-                    <details close>
+                    <details>
                         <summary>Secondary Education</summary>
                         <ul>
                             <li>Олонлог эгзэ</li>
@@ -86,93 +105,115 @@
                     <summary>Location</summary>
                     <p>Ulaanbaatar, Mongolia</p>
                 </details>
-            </div>
+            </article>
+
             <article>
-                <header>
-                    <h3>Contact Links</h3>
-                </header>
-                <ul>
-                    <li> <a href="#">Github</a> </li>
-                    <li> <a href="#">Telegram</a> </li>
-                    <li> <a href="#">Facebook</a> </li>
+                <h3>Contact Links</h3>
+                <ul class="contact-links">
+                    <a href="#" role="button" class="outline">Github</a>
+                    <a href="#" role="button" class="outline">Telegram</a>
+                    <a href="#" role="button" class="outline">Facebook</a>
                 </ul>
             </article>
-        </article>
-        
-        <article style="display: grid; grid-template-columns: auto auto; gap: 10px;">
-            <article style="display: grid; grid-template-rows: auto auto; gap: 10px;">
-                <header>
-                    <p><strong>🚂 Achievements</strong></p>
-                </header>
-                <ul>
-                    <li>First: ........</li>
-                    <li>Second: ........</li>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <p><strong>💼 Skills</strong></p>
-                </header>
-                <ul>
-                    <li>First: skill 1</li>
-                    <li>Secondary: skill 2</li>
-                </ul>
-            </article>
-        </article>
+        </div>
+
+        <div class="grid-container">
+            <section>
+                <article>
+
+                    <h2>Skills</h2>
+                    <div class="skills-grid">
+                        <article>
+                            <header>SKill 1</header>
+                            <p>...</p>
+                        </article>
+                        <article>
+                            <header>Skill 2</header>
+                            <p>...</p>
+                        </article>
+                        <article>
+                            <header>skill 3</header>
+                            <p>...</p>
+                        </article>
+                        <article>
+                            <header>Skill 4</header>
+                            <p>...</p>
+                        </article>
+                    </div>
+                </article>
+            </section>
+
+            <section>
+                <article>
+
+                    <h2>Achievement</h2>
+                    <article>
+                        <header>
+                            <h3>Award 1</h3>
+                            <p>Date</p>
+                        </header>
+                        <p>About ...</p>
+                    </article>
+                    <article>
+                        <header>
+                            <h3>Award 2</h3>
+                            <p>Date ... </p>
+                        </header>
+                        <p>About...</p>
+                    </article>
+                </article>
+            </section>
+        </div>
+
         <article>
-            <header>
-                <p><strong>💻 Portfolio</strong></p>
-                <details close>
-                    <summary>Blogs</summary>
-                    <details close>
-                        <summary>A Memorable Encounter with Mathematical Brilliance</summary>
-                        <ul>
-                            <img src="Zelmanov.jpg" alt="">
-                            <header>
-                                <h3>Meeting Fields Medalist Efim Zelmanov</h3>
-                            </header>
-                            <p>In early October 2024, I had the distinct privilege of attending a significant academic ceremony at the National University of Mongolia, where Fields Medal laureate Efim Zelmanov was conferred an Honorary Doctorate. The Fields Medal, awarded quadrennially to mathematicians under 40, holds a status in mathematics comparable to the Nobel Prize. Zelmanov received this prestigious honor in 1994, joining an elite group of recipients since the award's inception in 1936.
-                                As I sat among distinguished academics and mathematicians before the ceremony, I experienced considerable apprehension. Questions of belonging and self-doubt surfaced in my mind, nearly compelling me to depart. However, these reservations dissipated once the proceedings commenced, allowing me to focus entirely on the presentation.
-                                Zelmanov's presence at the podium was remarkably understated, yet he commanded profound respect from the audience. His presentation encompassed the evolution of modern mathematics, emphasizing the fundamental importance of early mathematical education in school curricula. He drew insightful comparisons with mathematical education approaches in developed nations, offering valuable perspective on global mathematical literacy.
-                                Despite occasional challenges in following the discourse attributable to both the complex subject matter and the combination of Russian accented English through imperfect acoustics I remained thoroughly engaged. When a fellow student inquired about my comprehension, I responded with an encouraging smile, though in truth, my understanding was not complete. Nevertheless, the collective absorption of the audience in Zelmanov's insights was palpable.
-                                The experience transformed my perception of mathematics beyond its computational aspects. I gained appreciation for mathematics as an expansive intellectual domain encompassing profound beauty and meaning. This revelation sparked hope that students might discover similar inspiration in their mathematical studies. Zelmanov and his peers demonstrate how mathematical thinking can illuminate new perspectives and deepen our understanding of the world.
-                                The impact of this encounter lingered, manifesting in renewed enthusiasm when approaching mathematical problems in subsequent days. As a final, lighter note, the red velvet cake served at the reception proved memorably delicious a sweet conclusion to an intellectually stimulating event.</p>
-                        </ul>
-                    </details>
-                    <details close>
-                        <summary>Japanese Theorem</summary>
-                        <ul>
-                            <p></p>
-                        </ul>
-                    </details>
+            <h2>💻 Portfolio</h2>
+            <details>
+                <summary>Blogs</summary>
+                <details>
+                    <summary>A Memorable Encounter with Mathematical Brilliance</summary>
+                    <article>
+                        <img src="Zelmanov.jpg" alt="Meeting with Fields Medalist Efim Zelmanov" class="blog-image">
+                        <h3>Meeting Fields Medalist Efim Zelmanov</h3>
+                        <p>In early October 2024, I had the distinct privilege of attending a significant academic ceremony at the National University of Mongolia, where Fields Medal laureate Efim Zelmanov was conferred an Honorary Doctorate. The Fields Medal, awarded quadrennially to mathematicians under 40, holds a status in mathematics comparable to the Nobel Prize. Zelmanov received this prestigious honor in 1994, joining an elite group of recipients since the award's inception in 1936.
+                            As I sat among distinguished academics and mathematicians before the ceremony, I experienced considerable apprehension. Questions of belonging and self-doubt surfaced in my mind, nearly compelling me to depart. However, these reservations dissipated once the proceedings commenced, allowing me to focus entirely on the presentation.
+                            Zelmanov's presence at the podium was remarkably understated, yet he commanded profound respect from the audience. His presentation encompassed the evolution of modern mathematics, emphasizing the fundamental importance of early mathematical education in school curricula. He drew insightful comparisons with mathematical education approaches in developed nations, offering valuable perspective on global mathematical literacy.
+                            Despite occasional challenges in following the discourse attributable to both the complex subject matter and the combination of Russian accented English through imperfect acoustics I remained thoroughly engaged. When a fellow student inquired about my comprehension, I responded with an encouraging smile, though in truth, my understanding was not complete. Nevertheless, the collective absorption of the audience in Zelmanov's insights was palpable.
+                            The experience transformed my perception of mathematics beyond its computational aspects. I gained appreciation for mathematics as an expansive intellectual domain encompassing profound beauty and meaning. This revelation sparked hope that students might discover similar inspiration in their mathematical studies. Zelmanov and his peers demonstrate how mathematical thinking can illuminate new perspectives and deepen our understanding of the world.
+                            The impact of this encounter lingered, manifesting in renewed enthusiasm when approaching mathematical problems in subsequent days. As a final, lighter note, the red velvet cake served at the reception proved memorably delicious a sweet conclusion to an intellectually stimulating event.</p>                        
+                    </article>
                 </details>
                 <details>
-                    <summary>Projects</summary>
-                    <details>
-                            <summary>Subproject 1</summary>
-                            <ul>
-                                <li>Subproject 1.1</li>
-                                <li>Subproject 1.2</li>
-                            </ul>
-                        </details>
-                        <details>
-                            <summary>Subproject 2</summary>
-                            <ul>
-                                <li>Subproject 2.1</li>
-                                <li>Subproject 2.2</li>
-                            </ul>
-                        </details>
-                    </details>
+                    <summary>Japanese Theorem</summary>
+                    <article>
+                        <P>Japanese theorem</P>
+                    </article>
                 </details>
-            </header>
+            </details>
+            <details>
+                <summary>Projects</summary>
+                <details>
+                    <summary>Subproject 1</summary>
+                    <ul>
+                        <li>Subproject 1.1</li>
+                        <li>Subproject 1.2</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Subproject 2</summary>
+                    <ul>
+                        <li>Subproject 2.1</li>
+                        <li>Subproject 2.2</li>
+                    </ul>
+                </details>
+            </details>
         </article>
+
         <blockquote>
-            <p>“Yale is not dream. It's about a 1/3”</p>
+            <p>"Yale is not dream. It's about a 1/3"</p>
             <footer>
                 <cite>— Obama</cite>
             </footer>
         </blockquote>
-    </div>
-    </div>
+    </main>
 </body>
 </html>
