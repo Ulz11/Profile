@@ -8,96 +8,193 @@
     <style>
         body {
             text-align: center;
+            line-height: 1.6;
+            color: var(--text-color);
         }
         .cover-photo {
             width: 100%;
-            height: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: -100px;
+            border: 6px solid var(--background-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             object-fit: cover;
         }
-        .profile-picture {
-            width: 175px;
-            height: 175px;
-            border-radius: 50%;
-            margin-top: -90px;
-            border: 5px solid var(--background-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+
         .container {
             margin: 0 auto;
-            max-width: 1000px;
-            padding: 0 1rem;
+            max-width: 1100px;
+            padding: 0 2rem;
         }
+
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--card-background-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2, h3, h4, h5 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+
+        .skills-grid article {
+            padding: 1.5rem;
+            background: var(--card-sectionning-background-color);
+            border-radius: var(--border-radius);
+            transition: transform 0.2s ease;
         }
+
+        .skills-grid article:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-section details {
+            background: var(--card-sectionning-background-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .book-section details[open] {
+            padding-bottom: 2.5rem;
+        }
+
+        .book-section summary {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        .book-section summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .book-section summary::before {
+            content: '📚 ';
+        }
+
+        .book-section img {
+            max-width: 250px;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .book-section p {
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            padding: 0 1.5rem;
+            text-align: justify;
+        }
+
+        .portfolio-section details {
+            margin-bottom: 1.5rem;
+            background: var(--card-sectionning-background-color);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+
         .blog-image {
             max-width: 100%;
             height: auto;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        details {
-            margin-bottom: 1rem;
-            text-align: left;
+
+        blockquote {
+            margin: 3rem auto;
+            max-width: 800px;
+            font-style: italic;
+            padding: 2rem;
+            background: var(--card-sectionning-background-color);
+            border-left: 5px solid var(--primary);
         }
-        details summary {
-            cursor: pointer;
-            padding: 0.5rem 0;
-        }
+
         .contact-links {
             list-style: none;
             padding: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
         }
-        .contact-links li {
-            margin: 0.5rem 0;
+
+        .contact-links a {
+            min-width: 150px;
         }
-        blockquote {
-            margin: 2rem auto;
-            max-width: 800px;
-            font-style: italic;
-        }
+
         @media (max-width: 768px) {
             .grid-container {
                 grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+                margin-top: -75px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="Yale.jpg" alt="Yale University Cover Photo" class="cover-photo">
-        <img src="Blue alvin.jpg" alt="Profile Picture of Ulziibadrakh Tserenchunt" class="profile-picture">
+        <img src="light-house.jpg" alt="lighthouse" class="cover-photo">
+        <img src="Obama.jpg" alt="Profile Picture of Ulziibadrakh Tserenchunt" class="profile-picture">
         <h2>Ulziibadrakh Tserenchunt</h2>
-        <p><strong>Gap Year Student</strong></p>
+        <p><strong>Gap Year Student | Eudaimonia</strong></p>
     </header>
 
     <main class="container">
         <div class="grid-container">
             <article>   
-                <h3>Main</h3>
+                <h3>About Me</h3>
                 <details>
                     <summary>Education</summary>
                     <details>
                         <summary>Elementary Education</summary>
                         <ul>
-                            <li>Эхлэл</li>
-                            <li>Оюуны ундраа</li>
-                            <li>Олонлог</li>
+                            <li>OLONLOG EXE SCHOOL</li>
                         </ul>
                     </details>
                     <details>
                         <summary>Secondary Education</summary>
                         <ul>
-                            <li>Олонлог эгзэ</li>
-                            <li>Оюуны ундраа</li>
+                            <li>School 96</li>
                         </ul>
                     </details>
                 </details>
@@ -108,89 +205,80 @@
             </article>
 
             <article>
-                <h3>Contact</h3>
+                <h3>Connect With Me</h3>
                 <ul class="contact-links">
-                    <a href="#" role="button" class="outline">Github</a>
-                    <a href="#" role="button" class="outline">Telegram</a>
-                    <a href="#" role="button" class="outline">Gmail</a>
+                    <a href="mailto:Ulziibadrakhtseren@gmail.com" role="button" class="outline">📧 Email</a>
+                    <a href="tel:+97694536864" role="button" class="outline">📱 Phone</a>
                 </ul>
             </article>
+            
         </div>
 
-        <div class="grid-container">
-            <section>
+        <section>
+            <h2>Areas of Interest</h2>
+            <div class="skills-grid">
                 <article>
-
-                    <h2>Hobby</h2>
-                    <div class="skills-grid">
-                        <article>
-                            <header>Hobby 1</header>
-                            <p>...</p>
-                        </article>
-                        <article>
-                            <header>Hobby 2</header>
-                            <p>...</p>
-                        </article>
-                        <article>
-                            <header>Hobby 3</header>
-                            <p>...</p>
-                        </article>
-                        <article>
-                            <header>Hobby 4</header>
-                            <p>...</p>
-                        </article>
-                    </div>
+                    <h5>Mathematics</h5>
+                    <p>Passionate about combinatorics, linear algebra, and graph theory, exploring the beautiful patterns in mathematical structures.</p>
                 </article>
-            </section>
-
-            <section>
                 <article>
-
-                    <h2>Achievement</h2>
-                    <article>
-                        <header>
-                            <h3>Award 1</h3>
-                            <p>Date</p>
-                        </header>
-                        <p>About ...</p>
-                    </article>
-                    <article>
-                        <header>
-                            <h3>Award 2</h3>
-                            <p>Date ... </p>
-                        </header>
-                        <p>About...</p>
-                    </article>
+                    <h5>Computer Science</h5>
+                    <p>Proficient in C++ and Python, with a strong foundation in fundamental algorithms and problem-solving.</p>
                 </article>
-            </section>
-        </div>
+                <article>
+                    <h5>Boxing</h5>
+                    <p>Training in boxing since age 15, developing discipline, focus, and physical conditioning through the sport.</p>
+                </article>
+            </div>
 
-        <article>
+            <article class="book-section">
+                <h3>Reading Journey</h3>
+                <details close>
+                    <summary>"Mathematics for Human Flourishing"</summary>
+                    <h4>Mathematics for Human Flourishing</h4>
+                    <img src="mathematics for human flourishing.jpg" alt="Mathematics for Human Flourishing book cover">
+                    <p>"Mathematics for Human Flourishing" is a profound and thought-provoking work that redefines the role of mathematics in our lives. It argues that math is not just about numbers or equations, but a deeply human pursuit that cultivates virtues like curiosity, creativity, and perseverance. Through personal stories and philosophical reflections, Francis Su highlights how mathematics can address our deepest desires for truth, beauty, and justice, while also fostering community and resilience. The book transcends technical boundaries, offering a vision of math as a means to understand the world and flourish as individuals.</p>
+                </details>
+
+                <details close>
+                    <summary>"Financial System 2030"</summary>
+                    <h4>Financial System 2030</h4>
+                    <img src="Financial system 2030.jpg" alt="Financial System 2030 book cover">
+                    <p>The financial system is currently confronted with tremendous challenges from the global economy, trade, politics, demographics, and most recently from enormous technological advancements. These developments have the capacity to change the existing financial system fundamentally. This book addresses how technological developments and digitalization will impact the future of financial systems.</p>
+                </details>
+
+                <details close>
+                    <summary>"The System of the World"</summary>
+                    <h4>The System of the World</h4>
+                    <img src="The system of world.jpg" alt="The System of the World book cover">
+                    <p>The System of the World by Pierre-Simon Laplace is a key work that presents the laws of celestial mechanics in a way that is both scientifically rigorous and accessible to a general audience. By explaining the structure of the solar system, the forces at play in the universe, and offering a deterministic view of reality, Laplace established himself as one of the foremost scientists of the Enlightenment era. His work laid the groundwork for much of modern astrophysics and remains a monumental achievement in the history of science.</p>
+                </details>
+            </article>
+        </section>
+
+        <section class="portfolio-section">
             <h2>💻 Portfolio</h2>
             <details>
-                <summary>Blog</summary>
+                <summary><h5>Blog</h5></summary>
                 <details>
                     <summary>A Memorable Encounter with Mathematical Brilliance</summary>
                     <article>
                         <img src="Zelmanov.jpg" alt="Meeting with Fields Medalist Efim Zelmanov" class="blog-image">
                         <h3>Meeting Fields Medalist Efim Zelmanov</h3>
-                        <p>In early October 2024, I had the distinct privilege of attending a significant academic ceremony at the National University of Mongolia, where Fields Medal laureate Efim Zelmanov was conferred an Honorary Doctorate. The Fields Medal, awarded quadrennially to mathematicians under 40, holds a status in mathematics comparable to the Nobel Prize. Zelmanov received this prestigious honor in 1994, joining an elite group of recipients since the award's inception in 1936.
-                            As I sat among distinguished academics and mathematicians before the ceremony, I experienced considerable apprehension. Questions of belonging and self-doubt surfaced in my mind, nearly compelling me to depart. However, these reservations dissipated once the proceedings commenced, allowing me to focus entirely on the presentation.
-                            Zelmanov's presence at the podium was remarkably understated, yet he commanded profound respect from the audience. His presentation encompassed the evolution of modern mathematics, emphasizing the fundamental importance of early mathematical education in school curricula. He drew insightful comparisons with mathematical education approaches in developed nations, offering valuable perspective on global mathematical literacy.
-                            Despite occasional challenges in following the discourse attributable to both the complex subject matter and the combination of Russian accented English through imperfect acoustics I remained thoroughly engaged. When a fellow student inquired about my comprehension, I responded with an encouraging smile, though in truth, my understanding was not complete. Nevertheless, the collective absorption of the audience in Zelmanov's insights was palpable.
-                            The experience transformed my perception of mathematics beyond its computational aspects. I gained appreciation for mathematics as an expansive intellectual domain encompassing profound beauty and meaning. This revelation sparked hope that students might discover similar inspiration in their mathematical studies. Zelmanov and his peers demonstrate how mathematical thinking can illuminate new perspectives and deepen our understanding of the world.
-                            The impact of this encounter lingered, manifesting in renewed enthusiasm when approaching mathematical problems in subsequent days. As a final, lighter note, the red velvet cake served at the reception proved memorably delicious a sweet conclusion to an intellectually stimulating event.</p>                        
+                        <p></p>                        
                     </article>
                 </details>
                 <details>
                     <summary>Japanese Theorem</summary>
                     <article>
-                        <P>Japanese theorem</P>
+                        <img src="Toshio.jpg" class="blog-image">
+                        <h3>Japanese theorem</h3>
+                        <p></p> 
                     </article>
                 </details>
             </details>
             <details>
-                <summary>Projects</summary>
+                <summary><h5>Projects</h5></summary>
                 <details>
                     <summary>Subproject 1</summary>
                     <ul>
@@ -206,10 +294,10 @@
                     </ul>
                 </details>
             </details>
-        </article>
+        </section>
 
         <blockquote>
-            <p>"If this intellec were vast enough to submit the data to analysis... then the future, just like the past would be present before its eyes,"</p>
+            <p>"If this intellect were vast enough to submit the data to analysis... then the future, just like the past would be present before its eyes,"</p>
             <footer>
                 <cite>— P. S. Laplace</cite>
             </footer>
