@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark-light"> 
+<html lang="en" data-theme="light"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,7 @@
             height: 400px;
             object-fit: cover;
             border-radius: var(--border-radius);
+            position: relative;
         }
 
         .profile-picture {
@@ -26,6 +27,8 @@
             border: 6px solid var(--background-color);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             object-fit: cover;
+            position: relative;
+            z-index: 2;
         }
 
         .container {
@@ -39,6 +42,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             margin: 3rem 0;
+            align-items: start;
         }
 
         section {
@@ -46,30 +50,58 @@
             padding: 2rem;
             background: var(--card-background-color);
             border-radius: var(--border-radius);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
         }
 
         h2, h3, h4, h5 {
             color: var(--primary);
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after, h3::after, h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover h2::after,
+        section:hover h3::after,
+        section:hover h4::after {
+            transform: scaleX(1);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
 
         .skills-grid article {
-            padding: 1.5rem;
+            padding: 2rem;
             background: var(--card-sectionning-background-color);
             border-radius: var(--border-radius);
-            transition: transform 0.2s ease;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .skills-grid article:hover {
             transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
         .book-section details {
@@ -77,29 +109,27 @@
             padding: 1.5rem;
             border-radius: var(--border-radius);
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
 
         .book-section details[open] {
             padding-bottom: 2.5rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
         .book-section summary {
             font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
             cursor: pointer;
             list-style: none;
-            padding: 0.5rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
         }
 
-        .book-section summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .book-section summary::before {
-            content: '📚 ';
+        .book-section summary:hover {
+            background-color: var(--primary-hover);
+            color: var(--primary-inverse);
         }
 
         .book-section img {
@@ -108,29 +138,30 @@
             margin: 2rem auto;
             display: block;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
-        .book-section p {
-            line-height: 1.8;
-            margin: 1.5rem 0;
-            padding: 0 1.5rem;
-            text-align: justify;
+        .book-section img:hover {
+            transform: scale(1.05);
         }
 
-        .portfolio-section details {
-            margin-bottom: 1.5rem;
-            background: var(--card-sectionning-background-color);
-            padding: 1rem;
-            border-radius: var(--border-radius);
+        .contact-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .blog-image {
-            max-width: 100%;
-            height: auto;
-            margin: 1.5rem 0;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        .contact-links a {
+            min-width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-3px);
         }
 
         blockquote {
@@ -140,18 +171,47 @@
             padding: 2rem;
             background: var(--card-sectionning-background-color);
             border-left: 5px solid var(--primary);
+            position: relative;
+            transition: transform 0.3s ease;
         }
 
-        .contact-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
+        blockquote:hover {
+            transform: translateX(10px);
         }
 
-        .contact-links a {
-            min-width: 150px;
+        blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+
+        .portfolio-section details {
+            margin-bottom: 2rem;
+            background: var(--card-sectionning-background-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-section details[open] {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-image:hover {
+            transform: scale(1.02);
         }
 
         @media (max-width: 768px) {
@@ -168,6 +228,10 @@
                 height: 150px;
                 margin-top: -75px;
             }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -176,130 +240,93 @@
         <img src="light-house.jpg" alt="lighthouse" class="cover-photo">
         <img src="Obama.jpg" alt="Profile Picture of Ulziibadrakh Tserenchunt" class="profile-picture">
         <h2>Ulziibadrakh Tserenchunt</h2>
-        <p><strong>Gap Year Student | Eudaimonia</strong></p>
+        <p><strong>Gap Year Student | Pursuing Eudaimonia</strong></p>
     </header>
 
     <main class="container">
         <div class="grid-container">
-            <article>   
-                <h3>About Me</h3>
-                <details>
-                    <summary>Education</summary>
-                    <details>
-                        <summary>Elementary Education</summary>
-                        <ul>
-                            <li>OLONLOG EXE SCHOOL</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Secondary Education</summary>
-                        <ul>
-                            <li>School 96</li>
-                        </ul>
-                    </details>
-                </details>
-                <details>
-                    <summary>Location</summary>
-                    <p>Ulaanbaatar, Mongolia</p>
-                </details>
-            </article>
-
-            <article>
-                <h3>Connect With Me</h3>
+            <div>   
+                <h4>Academic Journey</h4>
+                <ul>
+                    <li><strong>Elementary Education:</strong> OLONLOG EXE SCHOOL</li>
+                    <li><strong>Secondary Education:</strong> School 96</li>
+                </ul>
+                <h4>Current Location</h4>
+                <p>Ulaanbaatar, Mongolia</p>
+            </div>
+    
+            <div>
+                <h3>Let's Connect</h3>
                 <ul class="contact-links">
                     <a href="mailto:Ulziibadrakhtseren@gmail.com" role="button" class="outline">📧 Email</a>
                     <a href="tel:+97694536864" role="button" class="outline">📱 Phone</a>
                 </ul>
-            </article>
-            
+            </div>
         </div>
-
+    
         <section>
             <h2>Areas of Interest</h2>
             <div class="skills-grid">
                 <article>
                     <h5>Mathematics</h5>
-                    <p>Passionate about combinatorics, linear algebra, and graph theory, exploring the beautiful patterns in mathematical structures.</p>
+                    <p>Deeply passionate about combinatorics, linear algebra, and graph theory. I find joy in discovering the elegant patterns and structures that mathematics reveals in our world.</p>
                 </article>
                 <article>
                     <h5>Computer Science</h5>
-                    <p>Proficient in C++ and Python, with a strong foundation in fundamental algorithms and problem-solving.</p>
+                    <p>Proficient in C++ and Python, with a focus on algorithmic thinking and problem-solving. I enjoy translating mathematical concepts into practical programming solutions.</p>
                 </article>
                 <article>
                     <h5>Boxing</h5>
-                    <p>Training in boxing since age 15, developing discipline, focus, and physical conditioning through the sport.</p>
+                    <p>Training in boxing since age 15, I've learned that the discipline extends far beyond the ring. It's taught me focus, perseverance, and the importance of continuous improvement.</p>
                 </article>
             </div>
 
             <article class="book-section">
-                <h3>Reading Journey</h3>
-                <details close>
-                    <summary>"Mathematics for Human Flourishing"</summary>
-                    <h4>Mathematics for Human Flourishing</h4>
+                <h3>Book</h3>
+                <details>
+                    <summary>Mathematics for Human Flourishing</summary>
                     <img src="mathematics for human flourishing.jpg" alt="Mathematics for Human Flourishing book cover">
-                    <p>"Mathematics for Human Flourishing" is a profound and thought-provoking work that redefines the role of mathematics in our lives. It argues that math is not just about numbers or equations, but a deeply human pursuit that cultivates virtues like curiosity, creativity, and perseverance. Through personal stories and philosophical reflections, Francis Su highlights how mathematics can address our deepest desires for truth, beauty, and justice, while also fostering community and resilience. The book transcends technical boundaries, offering a vision of math as a means to understand the world and flourish as individuals.</p>
+                    <p>Francis Su's masterwork redefines mathematics as a deeply human pursuit that cultivates virtues like curiosity, creativity, and perseverance. Through personal stories and philosophical reflections, the book reveals how mathematics addresses our fundamental desires for truth, beauty, and justice while fostering community and resilience.</p>
                 </details>
 
-                <details close>
-                    <summary>"Financial System 2030"</summary>
-                    <h4>Financial System 2030</h4>
+                <details>
+                    <summary>Financial System 2030</summary>
                     <img src="Financial system 2030.jpg" alt="Financial System 2030 book cover">
-                    <p>The financial system is currently confronted with tremendous challenges from the global economy, trade, politics, demographics, and most recently from enormous technological advancements. These developments have the capacity to change the existing financial system fundamentally. This book addresses how technological developments and digitalization will impact the future of financial systems.</p>
+                    <p>This forward-looking analysis examines how technological developments and digitalization will reshape our financial systems. It explores the intersection of global economics, politics, demographics, and technological advancement in shaping the future of finance.</p>
                 </details>
 
-                <details close>
-                    <summary>"The System of the World"</summary>
-                    <h4>The System of the World</h4>
+                <details>
+                    <summary>The System of the World</summary>
                     <img src="The system of world.jpg" alt="The System of the World book cover">
-                    <p>The System of the World by Pierre-Simon Laplace is a key work that presents the laws of celestial mechanics in a way that is both scientifically rigorous and accessible to a general audience. By explaining the structure of the solar system, the forces at play in the universe, and offering a deterministic view of reality, Laplace established himself as one of the foremost scientists of the Enlightenment era. His work laid the groundwork for much of modern astrophysics and remains a monumental achievement in the history of science.</p>
+                    <p>Pierre-Simon Laplace's groundbreaking work presents celestial mechanics with both scientific rigor and accessibility. This foundational text established the deterministic view of the universe and continues to influence modern astrophysics.</p>
                 </details>
             </article>
         </section>
 
         <section class="portfolio-section">
-            <h2>💻 Portfolio</h2>
+            <h4>Recent Encounters & Reflections</h4>
             <details>
-                <summary><h5>Blog</h5></summary>
-                <details>
-                    <summary>A Memorable Encounter with Mathematical Brilliance</summary>
-                    <article>
-                        <img src="Zelmanov.jpg" alt="Meeting with Fields Medalist Efim Zelmanov" class="blog-image">
-                        <h3>Meeting Fields Medalist Efim Zelmanov</h3>
-                        <p></p>                        
-                    </article>
-                </details>
-                <details>
-                    <summary>Japanese Theorem</summary>
-                    <article>
-                        <img src="Toshio.jpg" class="blog-image">
-                        <h3>Japanese theorem</h3>
-                        <p></p> 
-                    </article>
-                </details>
+                <summary>Meeting Fields Medalist Efim Zelmanov</summary>
+                <article>
+                    <img src="Zelmanov.jpg" alt="Meeting with Fields Medalist Efim Zelmanov" class="blog-image">
+                    <h3>A Memorable Encounter with Mathematical Brilliance</h3>
+                    <p>A transformative experience attending the Honorary Doctorate ceremony for Fields Medalist Efim Zelmanov at the National University of Mongolia.</p>
+                </article>
             </details>
             <details>
-                <summary><h5>Projects</h5></summary>
-                <details>
-                    <summary>Subproject 1</summary>
-                    <ul>
-                        <li>Subproject 1.1</li>
-                        <li>Subproject 1.2</li>
-                    </ul>
-                </details>
-                <details>
-                    <summary>Subproject 2</summary>
-                    <ul>
-                        <li>Subproject 2.1</li>
-                        <li>Subproject 2.2</li>
-                    </ul>
-                </details>
+                <summary>Exploring Japanese Mathematical Theory</summary>
+                <article>
+                    <img src="Toshio.jpg" alt="Meeting with Dr. Toshio Oshima" class="blog-image">
+                    <h3>Insights from Japanese Mathematics</h3>
+                    <p>Reflections from an enlightening seminar on Japanese mathematical theory and its applications.</p>
+                </article>
             </details>
         </section>
 
         <blockquote>
-            <p>"If this intellect were vast enough to submit the data to analysis... then the future, just like the past would be present before its eyes,"</p>
+            <p>"Your thoughts and desires should be engraved in your mind, not written on paper."</p>
             <footer>
-                <cite>— P. S. Laplace</cite>
+                <cite>— Obama</cite>
             </footer>
         </blockquote>
     </main>
