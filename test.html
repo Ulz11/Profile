@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.green.min.css">
+    <title>Ulziibadrakh Tserenchunt</title>
+    <style>
+        body {
+            text-align: center;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        .cover-photo {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: -100px;
+            border: 6px solid var(--background-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1100px;
+            padding: 0 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--card-background-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2, h3, h4, h5 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .skills-grid article {
+            padding: 1.5rem;
+            background: var(--card-sectionning-background-color);
+            border-radius: var(--border-radius);
+            transition: transform 0.2s ease;
+        }
+
+        .skills-grid article:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-section details {
+            background: var(--card-sectionning-background-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .book-section details[open] {
+            padding-bottom: 2.5rem;
+        }
+
+        .book-section summary {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        .book-section summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .book-section summary::before {
+            content: '📚 ';
+        }
+
+        .book-section img {
+            max-width: 250px;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .book-section p {
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            padding: 0 1.5rem;
+            text-align: justify;
+        }
+
+        .portfolio-section details {
+            margin-bottom: 1.5rem;
+            background: var(--card-sectionning-background-color);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        blockquote {
+            margin: 3rem auto;
+            max-width: 800px;
+            font-style: italic;
+            padding: 2rem;
+            background: var(--card-sectionning-background-color);
+            border-left: 5px solid var(--primary);
+        }
+
+        .contact-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-links a {
+            min-width: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+                margin-top: -75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="light-house.jpg" alt="lighthouse" class="cover-photo">
+        <img src="Obama.jpg" alt="Profile Picture of Ulziibadrakh Tserenchunt" class="profile-picture">
+        <h2>Ulziibadrakh Tserenchunt</h2>
+        <p><strong>Gap Year Student | Eudaimonia</strong></p>
+    </header>
+
+    <main class="container">
+        <div class="grid-container">
+            <div>   
+                <h4>Education</h4>
+                <ul>
+                    <li><strong>Elementary Education:</strong> OLONLOG EXE SCHOOL</li>
+                    <li><strong>Secondary Education:</strong> School 96</li>
+                </ul>
+                <h4>Location</h4>
+                <p>Ulaanbaatar, Mongolia</p>
+            </div>
+    
+            <div>
+                <h3>Connect With Me</h3>
+                <ul class="contact-links">
+                    <a href="mailto:Ulziibadrakhtseren@gmail.com" role="button" class="outline">📧 Email</a>
+                    <a href="tel:+97694536864" role="button" class="outline">📱 Phone</a>
+                </ul>
+            </div>
+        </div>
+    </main>    
+        <section>
+            <h2>Areas of Interest</h2>
+            <div class="skills-grid">
+                <article>
+                    <h5>Mathematics</h5>
+                    <p>Passionate about combinatorics, linear algebra, and graph theory, exploring the beautiful patterns in mathematical structures.</p>
+                </article>
+                <article>
+                    <h5>Computer Science</h5>
+                    <p>Proficient in C++ and Python, with a strong foundation in fundamental algorithms and problem-solving.</p>
+                </article>
+                <article>
+                    <h5>Boxing</h5>
+                    <p>Training in boxing since age 15, developing discipline, focus, and physical conditioning through the sport.</p>
+                </article>
+            </div>
+
+            <article class="book-section">
+                <h3>Reading Journey</h3>
+                <details close>
+                    <summary>"Mathematics for Human Flourishing"</summary>
+                    <h4>Mathematics for Human Flourishing</h4>
+                    <img src="mathematics for human flourishing.jpg" alt="Mathematics for Human Flourishing book cover">
+                    <p>"Mathematics for Human Flourishing" is a profound and thought-provoking work that redefines the role of mathematics in our lives. It argues that math is not just about numbers or equations, but a deeply human pursuit that cultivates virtues like curiosity, creativity, and perseverance. Through personal stories and philosophical reflections, Francis Su highlights how mathematics can address our deepest desires for truth, beauty, and justice, while also fostering community and resilience. The book transcends technical boundaries, offering a vision of math as a means to understand the world and flourish as individuals.</p>
+                </details>
+
+                <details close>
+                    <summary>"Financial System 2030"</summary>
+                    <h4>Financial System 2030</h4>
+                    <img src="Financial system 2030.jpg" alt="Financial System 2030 book cover">
+                    <p>The financial system is currently confronted with tremendous challenges from the global economy, trade, politics, demographics, and most recently from enormous technological advancements. These developments have the capacity to change the existing financial system fundamentally. This book addresses how technological developments and digitalization will impact the future of financial systems.</p>
+                </details>
+
+                <details close>
+                    <summary>"The System of the World"</summary>
+                    <h4>The System of the World</h4>
+                    <img src="The system of world.jpg" alt="The System of the World book cover">
+                    <p>The System of the World by Pierre-Simon Laplace is a key work that presents the laws of celestial mechanics in a way that is both scientifically rigorous and accessible to a general audience. By explaining the structure of the solar system, the forces at play in the universe, and offering a deterministic view of reality, Laplace established himself as one of the foremost scientists of the Enlightenment era. His work laid the groundwork for much of modern astrophysics and remains a monumental achievement in the history of science.</p>
+                </details>
+            </article>
+        </section>
+        <section class="portfolio-section">
+                <summary><h4>Blogs</h4></sumqmary>
+                <details>
+                    <summary>A Memorable Encounter with Mathematical Brilliance</summary>
+                    <article>
+                        <img src="Zelmanov.jpg" alt="Meeting with Fields Medalist Efim Zelmanov" class="blog-image">
+                        <h3>Meeting Fields Medalist Efim Zelmanov</h3>
+                        <p></p>                        
+                    </article>
+                </details>
+                <details>
+                    <summary>Japanese Theorem</summary>
+                    <article>
+                        <img src="Toshio.jpg" class="blog-image">
+                        <h3>Japanese theorem</h3>
+                        <p></p> 
+                    </article>
+                </details>
+        </section>
+
+        <blockquote>
+            <p>Your thoughts and desires should be engraved in your mind, not written on paper.</p>
+            <footer>
+                <cite>— Obama</cite>
+            </footer>
+        </blockquote>
+    </main>
+</body>
+</html>

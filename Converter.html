@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.amber.css">
+    <title>Хөрвүүлэгч - Converter</title>
+</head>
+<body>
+    <main class="container">
+
+        <h2> <small>Obama's Converter</small> </h2>  
+            
+            <h2></h2>   
+            <h5>Version <small>0.0.1</small></h5>
+            <textarea id="inputText" name="raw" placeholder="English text" oninput="convert()"></textarea>
+            <textarea id="outputText" name="raw" placeholder="Монгол бичвэр" readonly></textarea>        
+        </section>
+        <section>
+            <h2></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Крилл үсэг : Cyrillic </th>
+                        <th scope="col">Латин үсэг : Latin</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+        </section>
+    </main>
+    <script src="convert.js"></script>
+</body>
+</html>

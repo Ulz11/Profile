@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Pico Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/1.5.10/pico.min.css">
+    <script src="calendar.js"></script>
+    <style>
+        .calendar-grid {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .calendar-grid td {
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--primary);
+        }
+        .day-number {
+            font-size: 1rem;
+        }
+        .weekday {
+            font-weight: bold;
+        }
+        .sunday {
+            color: var(--del-color);
+        }
+        .month-cell {
+            font-weight: bold;
+        }
+        .empty-cell {
+            background-color: var(--card-background-color);
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <article>
+            <header>
+                <h1>Calendário de Uma Página</h1>
+                <select id="yearChoose" onchange="setupYear();" aria-label="Selecionar ano">
+                </select>
+            </header>
+
+            <table class="calendar-grid">
+                <tr>
+                    <td colspan="5"><strong>DIAS</strong></td>
+                    <td id="dayweek11" class="month-cell"></td>
+                    <td id="dayweek12" class="month-cell"></td>
+                    <td id="dayweek13" class="month-cell"></td>
+                    <td id="dayweek14" class="month-cell"></td>
+                    <td id="dayweek15" class="month-cell"></td>
+                    <td id="dayweek16" class="month-cell"></td>
+                    <td id="dayweek17" class="month-cell"></td>
+                </tr>
+                <tr>
+                    <td colspan="5"></td>
+                    <td id="dayweek21" class="month-cell"></td>
+                    <td id="dayweek22" class="month-cell"></td>
+                    <td id="dayweek23" class="month-cell"></td>
+                    <td id="dayweek24" class="month-cell"></td>
+                    <td id="dayweek25" class="month-cell"></td>
+                    <td id="dayweek26" class="month-cell"></td>
+                    <td id="dayweek27" class="month-cell"></td>
+                </tr>
+                <tr>
+                    <td colspan="5"></td>
+                    <td id="dayweek31" class="month-cell"></td>
+                    <td id="dayweek32" class="month-cell"></td>
+                    <td id="dayweek33" class="month-cell"></td>
+                    <td id="dayweek34" class="month-cell"></td>
+                    <td id="dayweek35" class="month-cell"></td>
+                    <td id="dayweek36" class="month-cell"></td>
+                    <td id="dayweek37" class="month-cell"></td>
+                </tr>
+                <tr>
+                    <td class="day-number">1</td>
+                    <td class="day-number">8</td>
+                    <td class="day-number">15</td>
+                    <td class="day-number">22</td>
+                    <td class="day-number">29</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                </tr>
+                <tr>
+                    <td class="day-number">2</td>
+                    <td class="day-number">9</td>
+                    <td class="day-number">16</td>
+                    <td class="day-number">23</td>
+                    <td class="day-number">30</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                </tr>
+                <tr>
+                    <td class="day-number">3</td>
+                    <td class="day-number">10</td>
+                    <td class="day-number">17</td>
+                    <td class="day-number">24</td>
+                    <td class="day-number">31</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                </tr>
+                <tr>
+                    <td class="day-number">4</td>
+                    <td class="day-number">11</td>
+                    <td class="day-number">18</td>
+                    <td class="day-number">25</td>
+                    <td class="empty-cell"></td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                </tr>
+                <tr>
+                    <td class="day-number">5</td>
+                    <td class="day-number">12</td>
+                    <td class="day-number">19</td>
+                    <td class="day-number">26</td>
+                    <td class="empty-cell"></td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                </tr>
+                <tr>
+                    <td class="day-number">6</td>
+                    <td class="day-number">13</td>
+                    <td class="day-number">20</td>
+                    <td class="day-number">27</td>
+                    <td class="empty-cell"></td>
+                    <td class="weekday">SAB</td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                </tr>
+                <tr>
+                    <td class="day-number">7</td>
+                    <td class="day-number">14</td>
+                    <td class="day-number">21</td>
+                    <td class="day-number">28</td>
+                    <td class="empty-cell"></td>
+                    <td class="weekday sunday">DOM</td>
+                    <td class="weekday">SEG</td>
+                    <td class="weekday">TER</td>
+                    <td class="weekday">QUA</td>
+                    <td class="weekday">QUI</td>
+                    <td class="weekday">SEX</td>
+                    <td class="weekday">SAB</td>
+                </tr>
+            </table>
+
+            <footer>
+                <small>
+                    <p>Envie dúvidas e sugestões para</p>
+                    <p>Humberto José Bortolossi</p>
+                    <p><a href="mailto:humbertobortolossi@id.uff.br">humbertobortolossi@id.uff.br</a></p>
+                </small>
+            </footer>
+        </article>
+    </main>
+
+    <script>
+        var today = moment();
+
+        fillMonths(today.year());
+
+        var e = document.getElementById("yearChoose");
+        for (i = 1; i <= parseInt(today.year()) + 1000; i++) {
+            var option = document.createElement("option");
+            option.text = i;
+            e.add(option);
+        }
+
+        e.value = today.year();
+
+        function fillMonths(year) {
+            var line = [0, 0, 0, 0, 0, 0, 0];
+            var months = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+            var cdw = [6, 0, 1, 2, 3, 4, 5];
+
+            for (i = 1; i <= 3; i++) {
+                for (j = 1; j <= 7; j++) {
+                    var name = "dayweek" + i + j;
+                    document.getElementById(name).innerHTML = "&nbsp;";
+                }
+            }
+
+            for (i = 1; i <= 12; i++) {
+                var date = moment(year + "-" + i + "-1", "YYYY-MM-DD");
+                var dow = cdw[date.day()];
+                line[dow] = line[dow] + 1;
+                var c = dow + 1;
+                var l = line[dow];
+                var name = "dayweek" + l + c;
+                document.getElementById(name).innerHTML = months[i - 1];
+            }
+        }
+
+        function setupYear() {
+            var e = document.getElementById("yearChoose");
+            var value = e.options[e.selectedIndex].value;
+            fillMonths(value);
+        }
+    </script>
+</body>
+</html>
